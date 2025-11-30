@@ -1,0 +1,466 @@
+/* --- VARIÁVEIS E RESET --- */
+:root {
+    --primary-color: #E91E63;      /* Rosa Forte */
+    --primary-hover: #C2185B;      /* Rosa Escuro */
+    --bg-pink-light: #FCE4EC;      /* Rosa Muito Claro (Fundo) */
+    --text-black: #1a1a1a;         /* Preto Suave */
+    --text-gray: #555555;          /* Cinza Texto */
+    --white: #ffffff;
+    
+    --font-heading: 'Fredoka', sans-serif;       /* Títulos arredondados */
+    --font-hand: 'Dancing Script', cursive;      /* Detalhes manuscritos */
+    --font-body: 'Roboto', sans-serif;           /* Texto corrido */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-gray);
+    line-height: 1.6;
+    background-color: #fff;
+    overflow-x: hidden; /* Evita scroll horizontal indesejado na página inteira */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- HEADER & NAVEGAÇÃO --- */
+header {
+    background-color: var(--white);
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--bg-pink-light);
+}
+
+.nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-black);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-black);
+    font-weight: 500;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    transition: color 0.3s;
+    position: relative;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+/* Botão Encomendar (Header) */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(233, 30, 99, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(233, 30, 99, 0.3);
+}
+
+/* Ícone Hamburguer (Mobile) */
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-black);
+}
+
+/* --- HERO SECTION (CAPA) --- */
+.hero {
+    height: 85vh; /* Altura quase total do ecrã */
+    background: url('https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=1600&auto=format&fit=crop') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+
+.hero-overlay {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(233, 30, 99, 0.2));
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    padding: 20px;
+    max-width: 800px;
+}
+
+.welcome-badge {
+    background-color: var(--primary-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btn-white {
+    background-color: var(--white);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-white:hover {
+    background-color: var(--bg-pink-light);
+    transform: translateY(-2px);
+}
+
+/* --- SECÇÕES GERAIS --- */
+.section {
+    padding: 70px 0;
+}
+
+.bg-pink {
+    background-color: var(--bg-pink-light);
+}
+
+.section-title {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--text-black);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    margin-bottom: 50px;
+    font-family: var(--font-hand); /* Fonte manuscrita */
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* --- CARROSSEL --- */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 50px; /* Espaço lateral para os botões não ficarem em cima dos cards */
+}
+
+.carousel-track {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto; /* Permite scroll horizontal */
+    scroll-behavior: smooth;
+    padding: 20px 5px;
+    
+    /* Esconder barra de rolagem */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+.card {
+    min-width: 280px;
+    max-width: 280px;
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    flex-shrink: 0; /* Impede o card de encolher */
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.15);
+}
+
+.card-img {
+    height: 180px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-family: var(--font-heading);
+    color: var(--text-black);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.card-info p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+    height: 40px; /* Altura fixa para alinhar preços */
+}
+
+.price {
+    display: inline-block;
+    background-color: var(--bg-pink-light);
+    color: var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* Botões do Carrossel (Setas) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--bg-pink-light);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    font-size: 1.2rem;
+}
+
+.carousel-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+/* --- CTA BANNER (Área de Orçamento) --- */
+.cta-banner {
+    text-align: center;
+    margin-top: 60px;
+    padding: 40px 20px;
+    background-color: var(--white);
+    border-radius: 20px;
+    border: 2px dashed var(--primary-color);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-banner h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+/* --- PÁGINA GALERIA --- */
+.page-header {
+    background-color: var(--bg-pink-light);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #111;
+    color: var(--white);
+    padding: 60px 0 20px;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.footer-col h3 {
+    font-family: var(--font-heading);
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.footer-col p {
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.socials a {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: var(--primary-color);
+}
+
+/* --- RESPONSIVO (MOBILE) --- */
+@media (max-width: 768px) {
+    /* Ajuste Header */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .menu-toggle {
+        display: block; /* Mostra o hambúrguer */
+        margin-left: 20px;
+    }
+    
+    .btn-primary {
+        /* Esconde o texto "Encomendar" no mobile se quiser, ou ajusta o tamanho */
+        font-size: 0.8rem;
+        padding: 8px 15px;
+    }
+
+    /* Ajuste Hero */
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    /* Ajuste Carrossel no Mobile */
+    .carousel-wrapper {
+        padding: 0; /* Remove padding lateral */
+    }
+    
+    .carousel-btn {
+        display: none; /* Esconde setas no telemóvel (usa-se o dedo) */
+    }
+    
+    .carousel-track {
+        padding: 20px; /* Dá espaço nas laterais para ver o primeiro/último card */
+    }
+}
